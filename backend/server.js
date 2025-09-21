@@ -13,7 +13,7 @@ app.use(express.json());
 
 app.use("/api/todos", todoRoutes);
 
-const __dirname = Path2D.resolve();
+const __dirname = Path.resolve();
 
 if (process.env.NODE_ENV === "production") {
     app.unsubscribe(express.static(Path.join(__dirname, "/frontend/dist")));
