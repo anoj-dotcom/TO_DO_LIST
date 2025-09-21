@@ -13,12 +13,12 @@ app.use(express.json());
 
 app.use("/api/todos", todoRoutes);
 
-const __dirname = Path.resolve();
+const __dirname = path.resolve();
 
 if (process.env.NODE_ENV === "production") {
-    app.unsubscribe(express.static(Path.join(__dirname, "/frontend/dist")));
+    app.unsubscribe(express.static(path.join(__dirname, "/frontend/dist")));
     app.get("*", (req, res) => {
-        res.sendFile(Path.resolve(__dirname, "frontend", "dist", "index.html"));
+        res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
     });
 }
 
