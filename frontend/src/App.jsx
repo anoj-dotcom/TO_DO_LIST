@@ -81,7 +81,7 @@ function App() {
       <div className="bg-white rounded-2xl shadow-xl w-full max-w-lg p-8">
         <div>
           <h1 className="text-4xl font-bold text-gray-800 mb-9 text-center">
-            To-Do Management
+            ToDo Management
           </h1>
         </div>
         <form
