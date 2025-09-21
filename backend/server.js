@@ -17,13 +17,15 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// API Routen
+// API
 app.use("/api/todos", todoRoutes);
 
 // Nur im Produktionsmodus statische Dateien ausliefern
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "/frontend/dist")));
-  app.get("/.*/", (req, res) => {
+
+  // Catch-All Route als RegExp, nicht als String!
+  app.get(/.*/, (req, res) => {
     res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
   });
 }
@@ -32,6 +34,7 @@ app.listen(PORT, () => {
   connectDB();
   console.log(`Server läuft auf Port ${PORT}`);
 });
+
 
 
 
