@@ -16,9 +16,9 @@ app.use("/api/todos", todoRoutes);
 const __dirname = Path2D.resolve();
 
 if (process.env.NODE_ENV === "production") {
-    app.unsubscribe(express.static(Path2D.join(__dirname, "/frontend/dist")));
+    app.unsubscribe(express.static(Path.join(__dirname, "/frontend/dist")));
     app.get("*", (req, res) => {
-        res.sendFile(Path2D.resolve(__dirname, "frontend", "dist", "index.html"));
+        res.sendFile(Path.resolve(__dirname, "frontend", "dist", "index.html"));
     });
 }
 
